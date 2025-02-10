@@ -20,12 +20,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-vvm2zc2on))^hl4d=ij5m*_lo(d(v9!6n@b5i(!qtz%+4m)q&u'
+
+SECRET_KEY =  'CHAGEN-ME'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = 'CHAGEN-ME'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = 'CHAGEN-ME'
 
 
 # Application definition
@@ -55,7 +57,9 @@ ROOT_URLCONF = 'project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR / 'base_templates'
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -80,6 +84,17 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'CHANGE-ME',  # Define o MySQL como banco de dados
+#         'NAME': 'CHANGE-ME',             # Nome do banco de dados
+#         'USER': 'CHANGE-ME',             # Nome do usuário do banco
+#         'PASSWORD': 'CHANGE-ME',                   # Senha do usuário
+#         'HOST': 'CHANGE-ME',                  # Host do banco (local)
+#         'PORT': 'CHANGE-ME',                       # Porta padrão do MySQL
+#     }
+# }
 
 
 # Password validation
@@ -106,7 +121,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
@@ -117,8 +132,24 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+# STATICFILES_DIRS = (
+#     BASE_DIR / 'base_static,'
+# )
+
+# IMAGENS BOTA FOTOS 
+STATIC_ROOT = BASE_DIR / 'statc' # Collectstatic
+
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+try:
+    from project.local_setting import *
+
+except ImportError:
+    ...
