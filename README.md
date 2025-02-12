@@ -1,5 +1,4 @@
 install do projeto.
-
 django
 
 Instala o Pillow para enviar fotos

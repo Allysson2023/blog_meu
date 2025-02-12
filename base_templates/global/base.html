@@ -5,14 +5,20 @@
 </head>
 <body>
     <div class="blog-wrapper">
-
-        {% include "global/_header.html" %}
+        
+        {% if site_setup_meu.show_header  %}
+            {% include "global/_header.html" %}
+        {% endif %}
     
         {% block content %}{% endblock content %}
         
-        {% include "global/_pagination.html" %}
-        
-        {% include "global/_footer.html" %}
+        {% if site_setup_meu.show_pagination  %}
+            {% include "global/_pagination.html" %}
+        {% endif %}
+
+        {% if site_setup_meu.show_footer %}
+            {% include "global/_footer.html" %}
+        {% endif %}
     
         {% comment %} {% include "global/temp.html" %} {% endcomment %}
     </div>
