@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    {% include "global/_head.html" %}
+</head>
+<body>
+    <div class="blog-wrapper">
+
+        {% include "global/_header.html" %}
+    
+        {% block content %}{% endblock content %}
+        
+        {% include "global/_pagination.html" %}
+        
+        {% include "global/_footer.html" %}
+    
+        {% comment %} {% include "global/temp.html" %} {% endcomment %}
+    </div>
+
+</body>
+</html> 
