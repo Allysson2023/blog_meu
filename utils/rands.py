@@ -11,4 +11,4 @@ def random_letters(k):
 def slugify_new(text):
     return slugify(text)+ '-'  + random_letters(10)
 
-print(slugify_new('bla bla bla bla bla'))
+#print(slugify_new('bla bla bla bla bla'))
