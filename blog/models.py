@@ -65,6 +65,10 @@ class Page(models.Model):
         help_text='Este campo precisará estar marcado para a página ser exibida publicamente;'
         )
     content = models.TextField()
+    def get_absolute_url(self):
+        if not self.is_published:
+            return reverse('blog:index')
+        return reverse('blog:page', args=(self.slug,))
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify_new(self.title)
@@ -89,7 +93,7 @@ class Post(models.Model):
     slug = models.SlugField(
         unique=True, default=None, null=True, blank=True, max_length=255,
     )
-    excerpt = models.CharField(max_length=160)
+    excerpt = models.CharField(max_length=255)
     is_published = models.BooleanField(
         default=False,
         help_text='Este campo precisará estar marcado para o post ser exibida publicamente;'
