@@ -82,23 +82,23 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'CHANGE-ME',  # Define o MySQL como banco de dados
-#         'NAME': 'CHANGE-ME',             # Nome do banco de dados
-#         'USER': 'CHANGE-ME',             # Nome do usuário do banco
-#         'PASSWORD': 'CHANGE-ME',                   # Senha do usuário
-#         'HOST': 'CHANGE-ME',                  # Host do banco (local)
-#         'PORT': 'CHANGE-ME',                       # Porta padrão do MySQL
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'CHANGE-ME',  # Define o MySQL como banco de dados
+        'NAME': 'CHANGE-ME',             # Nome do banco de dados
+        'USER': 'CHANGE-ME',             # Nome do usuário do banco
+        'PASSWORD': 'CHANGE-ME',                   # Senha do usuário
+        'HOST': 'CHANGE-ME',                  # Host do banco (local)
+        'PORT': 'CHANGE-ME',                       # Porta padrão do MySQL
+    }
+}
 
 
 # Password validation
