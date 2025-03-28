@@ -4,12 +4,36 @@
     {% include "global/_head.html" %}
 </head>
 <body>
+    <script>
+        function aceitarCookies() {
+            document.cookie = "aceitouCookies=true; path=/; max-age=" + (60 * 60 * 24 * 30); // Expira em 30 dias
+            document.getElementById("cookie-banner").style.display = "none";
+        }
+    
+        function verificarCookies() {
+            if (document.cookie.indexOf("aceitouCookies=true") === -1) {
+                document.getElementById("cookie-banner").style.display = "flex";
+            } else {
+                document.getElementById("cookie-banner").style.display = "none";
+            }
+        }
+    
+        // Executa quando a página carregar
+        window.onload = verificarCookies;
+    </script>
     <div class="blog-wrapper">
         
         {% if site_setup_meu.show_header  %}
             {% include "global/_header.html" %}
         {% endif %}
-    
+
+
+        <div id="cookie-banner" class="cookie-container">
+            <p>Este site usa cookies para melhorar a experiência do usuário e exibir anúncios personalizados. <a href="#">Saiba mais</a></p>
+            <button onclick="aceitarCookies()">Aceitar</button>
+        </div>
+
+        
         {% block content %}{% endblock content %}
         
         {% if site_setup_meu.show_pagination  %}

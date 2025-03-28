@@ -4,7 +4,7 @@
   </h1>
 
 </div> -->
-<header class="header section-wrapper">
+<header class="header section-wrapper menu-novo">
     <div class="section-content-wide">
       <div class="section-gap">
 
@@ -37,7 +37,9 @@
             </form>
           </div>
         {% endif %}
-  
+        
+
+        
         {% if site_setup_meu.show_menu %}
           <nav class="menu">
             <ul class="menu-items">
@@ -46,6 +48,7 @@
                 {% if link.new_tab %}
                 <a target="_blank" class="menu-link" href="{{ link.url_or_path }}">{{ link.text }}</a>
                 {% else %}
+                <a href="#">| cookies |</a>
                 <a class="menu-link" href="{{ link.url_or_path }}">{{ link.text }}</a>
                 {% endif %}
               </li>
@@ -53,7 +56,8 @@
             </ul>
           </nav>
         {% endif %}
-        
+    
       </div>
     </div>
+    
   </header>
